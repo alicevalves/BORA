@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:backgroundTint="@color/background"
+    tools:context=".Cadastro">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_principal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        />
+    <Button
+        android:id="@+id/btn_Termos"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/app_termos"
+        android:textColor="@color/pink"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_ConfirmSenha" />
+
+    <Button
+        android:id="@+id/btn_cadastrar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/pink"
+        android:onClick="cadastrar"
+        android:text="@string/app_cadastrar"
+        android:textColor="@color/design_default_color_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/ed_Nome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Nome" />
+
+    <ImageView
+        android:id="@+id/IMV_LogoCadastro"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/logo"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/txt_Nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/app_nome"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IMV_LogoCadastro" />
+
+    <TextView
+        android:id="@+id/txt_EmailCad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-mail"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/txt_Nome"
+        app:layout_constraintTop_toBottomOf="@+id/ed_Nome" />
+
+    <EditText
+        android:id="@+id/ed_EmailCad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="@string/app_placeholderusu"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ed_Nome"
+        app:layout_constraintTop_toBottomOf="@+id/txt_EmailCad" />
+
+    <TextView
+        android:id="@+id/txt_Data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_nascimento"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/txt_EmailCad"
+        app:layout_constraintTop_toBottomOf="@+id/ed_EmailCad" />
+
+    <EditText
+        android:id="@+id/ed_DataNascimento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="@+id/ed_EmailCad"
+        app:layout_constraintStart_toStartOf="@+id/ed_EmailCad"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Data" />
+
+    <TextView
+        android:id="@+id/txt_SenhaCad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_senha"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/txt_Data"
+        app:layout_constraintTop_toBottomOf="@+id/ed_DataNascimento" />
+
+    <EditText
+        android:id="@+id/ed_SenhaCad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/ed_DataNascimento"
+        app:layout_constraintStart_toStartOf="@+id/ed_DataNascimento"
+        app:layout_constraintTop_toBottomOf="@+id/txt_SenhaCad" />
+
+    <TextView
+        android:id="@+id/txt_ConfirmSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_senhaconfirma"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/txt_SenhaCad"
+        app:layout_constraintTop_toBottomOf="@+id/ed_SenhaCad" />
+
+    <EditText
+        android:id="@+id/ed_ConfirmSenha"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/ed_SenhaCad"
+        app:layout_constraintStart_toStartOf="@+id/ed_SenhaCad"
+        app:layout_constraintTop_toBottomOf="@+id/txt_ConfirmSenha" />
+
+    <CheckBox
+        android:id="@+id/chk_termos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_termosconcordo"
+        app:layout_constraintStart_toStartOf="@+id/btn_Termos"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Termos" />
+</androidx.constraintlayout.widget.ConstraintLayout>

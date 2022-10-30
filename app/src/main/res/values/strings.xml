@@ -1,0 +1,119 @@
+<resources>
+    <string name="app_name">BORA!?</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="remind_to_take_a_break">Lembre-me de fazer uma pausa</string>
+
+    <string name="remind_me">Remind me to take a break</string>
+    <string name="key_upload_quality">key_upload_quality</string>
+    <string name="remind_me_for_bed_time">remind_me_for_bed_time</string>
+    <string name="remind_for_bed_time">Lembre-me para a hora de dormir</string>
+    <string name="limit_data_usage">prefs_limit_data_usage</string>
+    <string name="stream_video">Transmita apenas vídeo HD em Wi-Fi</string>
+
+    <string name="limit_mobile_usage">Limitar o uso de dados móveis</string>
+    <string name="double_tap_to_seek">Toque duas vezes para procurar</string>
+    <string name="pref_seek_val">pref_seek_val</string>
+    <string name="seconds">segundos</string>
+    <string name="uploads">Carregamentos</string>
+
+    <string name="pref_uploads">pref_uploads</string>
+    <string name="specify_network_prefs">Especifique as preferências de rede para uploads</string>
+    <string name="prefs_restricted_mode">prefs_restricted_mode</string>
+    <string name="restricated_mode">O Modo restrito pode ajudar a ocultar vídeos com conteúdo potencialmente adulto. Nenhum filtro é 100% preciso, mas deve ajudar você a evitar a maior parte desse tipo de conteúdo.</string>
+    <string name="restricated_mode_description">Modo restrito</string>
+    <string name="prefs_enable_stats">prefs_enable_stats</string>
+    <string name="enable_stats">Ativar estatísticas para nerds</string>
+    <!-- ConfigProfileActivity -->
+    <string name="title_activity_config_profile">
+        Perfil
+    </string>
+
+    <string name="info_profile_photo">
+        Toque na foto para abrir a galeria ou fotografia.
+    </string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Mensagens</string>
+    <string name="sync_header">Sincronizar</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Sua assinatura</string>
+    <string name="reply_title">Ação de resposta padrão</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sincronize e-mails periodicamente</string>
+    <string name="attachment_title">Baixar anexos recebidos</string>
+    <string name="attachment_summary_on">Baixe automaticamente anexos para e-mails recebidos
+    </string>
+    <string name="attachment_summary_off">Faça o download de anexos apenas quando solicitado manualmente</string>
+
+    <string-array name="pref_upload_quality_entries">
+        <item>360p</item>
+        <item>480p</item>
+        <item>720p</item>
+        <item>1080p</item>
+        <item>Original</item>
+    </string-array>
+
+    <string-array name="pref_remind_me_to_take_a_break">
+        <item>1 hours</item>
+        <item>2 hours</item>
+        <item>3 hours</item>
+        <item>5 hours</item>
+        <item>10 hours</item>
+    </string-array>
+
+    <string-array name="pref_seek_values">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+    </string-array>
+
+    <string-array name="pref_duration">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="pref_uploads">
+        <item>Only when on Wi-Fi</item>
+        <item>On any network</item>
+    </string-array>
+
+    <string name="app_placeholderusu">Ex: seunome@exemplo.com</string>
+    <string name="app_placeholdersenha">Informe sua senha</string>
+    <string name="app_senha">Senha</string>
+    <string name="app_senhaconfirma">Confirme a senha</string>
+    <string name="app_nome">Nome</string>
+    <string name="app_placeholdernome">Digite seu nome</string>
+    <string name="app_nascimento">Data de Nascimento</string>
+    <string name="app_termos">TERMOS DE USO DO APLICATIVO</string>
+    <string name="app_termosconcordo">Eu li os termos e concordo</string>
+    <string name="app_cadastrar">Cadastrar</string>
+    <string name="app_esqueciSenha">Esqueci minha Senha</string>
+    <string name="app_entrar">Entrar</string>
+    <string name="app_novaconta">CRIAR NOVA CONTA</string>
+
+    <!-- CHAT -->
+    <string name="app_conversas">Conversas</string>
+    <string name="app_mensagem">Digite sua mensagem</string>
+    <string name="app_enviar">ENVIAR</string>
+
+    <!-- Config -->
+    <string name="app_idioma">Idioma</string>
+    <string name="app_sairApp">SAIR DO APP</string>
+    <string name="app_salvar">Salvar</string>
+
+
+    <!-- Eventos -->
+    <string name="app_eventos">Cadastro de Eventos</string>
+    <string name="app_descEvento">Descrição do Evento</string>
+    <string name="app_dataEvento">Data do Evento</string>
+    <string name="app_local">Local do Evento</string>
+    <string name="app_bora">BORA!?</string>
+
+</resources>

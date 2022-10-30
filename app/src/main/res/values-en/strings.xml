@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BORA!?</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="remind_to_take_a_break">Remind me to take a break</string>
+    <string name="remind_me">Remind me to take a break</string>
+    <string name="key_upload_quality">key_upload_quality</string>
+    <string name="remind_me_for_bed_time">remind_me_for_bed_time</string>
+    <string name="remind_for_bed_time">Remind me for bed time</string>
+    <string name="info_profile_photo">
+        Tap the photo to open the gallery or photo.
+    </string>
+    <string name="limit_data_usage">prefs_limit_data_usage</string>
+    <string name="stream_video">Only stream HD video on Wi-Fi</string>
+    <string name="limit_mobile_usage">Limit mobile data usage</string>
+    <string name="double_tap_to_seek">Double-tap to seek</string>
+    <string name="pref_seek_val">pref_seek_val</string>
+    <string name="seconds">seconds</string>
+    <string name="uploads">Uploads</string>
+    <string name="pref_uploads">pref_uploads</string>
+    <string name="specify_network_prefs">Specify network preferences for uploads</string>
+    <string name="prefs_restricted_mode">prefs_restricted_mode</string>
+    <string name="restricated_mode">Restricted Mode can help to hide videos with potentially mature content.No filter is 100% accurate, but it should help you to avoid most of this type of content.</string>
+    <string name="restricated_mode_description">Restricted Mode</string>
+    <string name="prefs_enable_stats">prefs_enable_stats</string>
+    <string name="enable_stats">Enable stats for nerds</string>
+    <!-- ConfigProfileActivity -->
+    <string name="title_activity_config_profile">
+        Profile
+    </string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+
+    <string name="app_placeholderusu">Ex: yourname@example.com</string>
+    <string name="app_placeholdersenha">Type your password</string>
+    <string name="app_senha">Password</string>
+    <string name="app_senhaconfirma">Confirm the Password</string>
+    <string name="app_nome">Name</string>
+    <string name="app_placeholdernome">Type your name</string>
+    <string name="app_nascimento">Birth date</string>
+    <string name="app_termos">APPLICATION TERMS OF USE</string>
+    <string name="app_termosconcordo">I have read the terms and agree</string>
+    <string name="app_cadastrar">Register</string>
+    <string name="app_esqueciSenha">I forgot my password</string>
+    <string name="app_entrar">Log in</string>
+    <string name="app_novaconta">CREATE NEW ACCOUNT</string>
+
+    <!-- CHAT -->
+    <string name="app_conversas">Conversations</string>
+    <string name="app_mensagem">Type your message</string>
+    <string name="app_enviar">SUBMIT</string>
+
+    <!-- Config -->
+    <string name="app_idioma">Language</string>
+    <string name="app_sairApp">EXIT</string>
+    <string name="app_salvar">Save</string>
+
+
+    <!-- Eventos -->
+    <string name="app_eventos">Event Registration</string>
+    <string name="app_descEvento">Description of the event</string>
+    <string name="app_dataEvento">Date of the event</string>
+    <string name="app_local">Events place</string>
+    <string name="app_bora">LETS GO!?</string>
+</resources>

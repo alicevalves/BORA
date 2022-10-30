@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:backgroundTint="@color/background"
+    tools:context=".CadastroEventos">
+
+    <ImageView
+        android:id="@+id/IMV_LogoCadastro2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/logo"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/txt_descricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/app_descEvento"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IMV_LogoCadastro2" />
+
+    <EditText
+        android:id="@+id/ed_descricao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_descricao" />
+
+    <TextView
+        android:id="@+id/txt_dataEvento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_dataEvento"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/txt_descricao"
+        app:layout_constraintTop_toBottomOf="@+id/ed_descricao" />
+
+    <EditText
+        android:id="@+id/ed_dataEvento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="@+id/ed_descricao"
+        app:layout_constraintTop_toBottomOf="@+id/txt_dataEvento" />
+
+    <TextView
+        android:id="@+id/txt_local"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_local"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/txt_dataEvento"
+        app:layout_constraintTop_toBottomOf="@+id/ed_dataEvento" />
+
+    <EditText
+        android:id="@+id/ed_local"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="@+id/ed_descricao"
+        app:layout_constraintStart_toStartOf="@+id/ed_dataEvento"
+        app:layout_constraintTop_toBottomOf="@+id/txt_local" />
+
+    <Button
+        android:id="@+id/btn_NovoEvento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:onClick="voltar"
+        android:text="@string/app_bora"
+        android:textColor="@color/design_default_color_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_local" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

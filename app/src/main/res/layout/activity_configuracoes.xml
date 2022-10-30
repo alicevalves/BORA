@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Configuracoes">
+
+    <ImageView
+        android:id="@+id/img_profile"
+        android:layout_width="108dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/bg_image_view_profile"
+        android:onClick="callGaleria"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/gray" />
+
+    <TextView
+        android:id="@+id/txt_infFoto"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:maxLines="10"
+        android:text="@string/info_profile_photo"
+        android:textColor="@color/pink"
+        app:layout_constraintBottom_toBottomOf="@+id/img_profile"
+        app:layout_constraintLeft_toRightOf="@+id/img_profile"
+        app:layout_constraintTop_toTopOf="@+id/img_profile" />
+
+    <TextView
+        android:id="@+id/txt_NomeConfig"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:text="@string/app_nome"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_profile" />
+
+    <EditText
+        android:id="@+id/ed_NomeConfig"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:ems="10"
+        android:hint="@string/app_placeholdernome"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_NomeConfig" />
+
+    <TextView
+        android:id="@+id/txt_EmailConfig"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:text="E-mail"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_NomeConfig" />
+
+    <EditText
+        android:id="@+id/ed_EmailConfig"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/app_placeholderusu"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/ed_NomeConfig"
+        app:layout_constraintStart_toStartOf="@+id/ed_NomeConfig"
+        app:layout_constraintTop_toBottomOf="@+id/txt_EmailConfig" />
+
+    <Button
+        android:id="@+id/btn_Atualiza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/app_salvar"
+        android:textColor="@color/design_default_color_background"
+        app:layout_constraintStart_toEndOf="@+id/btn_Sair"
+        app:layout_constraintTop_toBottomOf="@+id/ed_EmailConfig" />
+
+    <Button
+        android:id="@+id/btn_Sair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/design_default_color_error"
+        android:text="@string/app_sairApp"
+        android:textColor="@color/design_default_color_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_EmailConfig" />
+</androidx.constraintlayout.widget.ConstraintLayout>

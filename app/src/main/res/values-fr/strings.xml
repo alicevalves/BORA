@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BORA!?</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="remind_to_take_a_break">Rappelle-moi de faire une pause</string>
+    <string name="remind_me">Rappelle-moi de faire une pause</string>
+    <string name="key_upload_quality">key_upload_quality</string>
+    <string name="remind_me_for_bed_time">remind_me_for_bed_time</string>
+    <string name="remind_for_bed_time">Rappelle-moi l"'heure du coucher</string>
+    <string name="limit_data_usage">prefs_limit_data_usage</string>
+    <string name="stream_video">Diffusez uniquement des vidéos HD sur Wi-Fi</string>
+    <string name="limit_mobile_usage">Limiter l utilisation des données mobiles</string>
+    <string name="double_tap_to_seek">Appuyez deux fois pour rechercher</string>
+    <string name="pref_seek_val">pref_seek_val</string>
+    <string name="seconds">secondes</string>
+    <string name="uploads">Téléchargements</string>
+    <string name="pref_uploads">pref_uploads</string>
+    <string name="specify_network_prefs">Spécifier les préférences réseau pour les téléchargements</string>
+    <string name="prefs_restricted_mode">prefs_restricted_mode</string>
+    <string name="restricated_mode">Le mode restreint peut aider à masquer les vidéos avec un contenu potentiellement mature. Aucun filtre n est précis à 100%, mais il devrait vous aider à éviter la plupart de ce type de contenu.</string>
+    <string name="restricated_mode_description">Mode restreint</string>
+    <string name="prefs_enable_stats">prefs_enable_stats</string>
+    <string name="enable_stats">Activer les statistiques pour les nerds</string>
+    <!-- ConfigProfileActivity -->
+    <string name="title_activity_config_profile">
+        Profil
+    </string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Synchroniser</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Votre signature</string>
+    <string name="reply_title">Action de réponse par défaut</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Synchroniser périodiquement les e-mails</string>
+    <string name="attachment_title">Télécharger les pièces jointes entrantes</string>
+    <string name="attachment_summary_on">Télécharger automatiquement les pièces jointes des e-mails entrants
+    </string>
+    <string name="attachment_summary_off">Ne télécharger les pièces jointes que sur demande manuelle</string>
+
+
+    <string name="info_profile_photo">
+        Appuyez sur la photo pour ouvrir la galerie ou la photo.
+    </string>
+    <string name="app_placeholderusu">Ex: votrenom@exemple.com</string>
+    <string name="app_placeholdersenha">Renseignez votre mot de passe</string>
+    <string name="app_senha">Mot de passe</string>
+    <string name="app_senhaconfirma">Confirmer le mot de passe</string>
+    <string name="app_nome">Nom</string>
+    <string name="app_placeholdernome">Tapez votre nom</string>
+    <string name="app_nascimento">Date de naissance</string>
+    <string name="app_termos">CONDITIONS D UTILISATION</string>
+    <string name="app_termosconcordo">J ai lu les termes et j accepte</string>
+    <string name="app_cadastrar">S inscrire</string>
+    <string name="app_esqueciSenha">j ai oublié mon mot de passe</string>
+    <string name="app_entrar">Connexion</string>
+    <string name="app_novaconta">CRÉER UN NOUVEAU COMPTE</string>
+
+    <!-- CHAT -->
+    <string name="app_conversas">Conversation</string>
+    <string name="app_mensagem">Digite sua mensagem</string>
+    <string name="app_enviar">NOUS FAIRE PARVENIR</string>
+
+    <!-- Config -->
+    <string name="app_idioma">Langue</string>
+    <string name="app_sairApp">QUITTER L"'APPLICATION</string>
+    <string name="app_salvar">Sauver</string>
+
+
+    <!-- Eventos -->
+    <string name="app_eventos">Inscription à l"'événement</string>
+    <string name="app_descEvento">Descriptif de l"'événement</string>
+    <string name="app_dataEvento">Date de l"'événement</string>
+    <string name="app_local">Lieu de l"'événement</string>
+    <string name="app_bora">ALLONS-Y!?</string>
+</resources>

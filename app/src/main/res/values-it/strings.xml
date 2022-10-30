@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BORA!?</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="remind_to_take_a_break">Ricordami di fare una pausa</string>
+    <string name="remind_me">Ricordami di fare una pausa</string>
+    <string name="key_upload_quality">key_upload_quality</string>
+    <string name="remind_me_for_bed_time">remind_me_for_bed_time</string>
+    <string name="remind_for_bed_time">Ricordamelo per l"'ora di andare a letto</string>
+    <string name="limit_data_usage">prefs_limit_data_usage</string>
+    <string name="stream_video">Riproduci video HD in streaming solo su Wi-Fi</string>
+    <string name="limit_mobile_usage">Limita l utilizzo dei dati mobili</string>
+    <string name="double_tap_to_seek">Tocca due volte per cercare</string>
+    <string name="pref_seek_val">pref_seek_val</string>
+    <string name="seconds">secondi</string>
+    <string name="uploads">Caricamenti</string>
+    <string name="pref_uploads">pref_uploads</string>
+    <string name="specify_network_prefs">Specifica le preferenze di rete per i caricamenti</string>
+    <string name="prefs_restricted_mode">prefs_restricted_mode</string>
+    <string name="restricated_mode">La Modalità con restrizioni può aiutarti a nascondere i video con contenuti potenzialmente per adulti. Nessun filtro è accurato al 100%, ma dovrebbe aiutarti a evitare la maggior parte di questo tipo di contenuto.</string>
+    <string name="restricated_mode_description">Modalità con restrizioni</string>
+    <string name="prefs_enable_stats">prefs_enable_stats</string>
+    <string name="enable_stats">Abilita le statistiche per i nerd</string>
+    <!-- ConfigProfileActivity -->
+    <string name="title_activity_config_profile">
+        Profilo
+    </string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messaggi</string>
+    <string name="sync_header">Sincronizza</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">La tua firma</string>
+    <string name="reply_title">Azione di risposta predefinita</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sincronizza periodicamente la posta elettronica</string>
+    <string name="attachment_title">Scarica gli allegati in arrivo</string>
+    <string name="attachment_summary_on">Scarica automaticamente gli allegati per le email in arrivo
+    </string>
+    <string name="attachment_summary_off">Scarica gli allegati solo se richiesti manualmente</string>
+
+    <string name="info_profile_photo">
+        Tocca la foto per aprire la galleria o la foto.
+    </string>
+    <string name="app_placeholderusu">Es: tuonome@esempio.com</string>
+    <string name="app_placeholdersenha">Informa la tua password</string>
+    <string name="app_senha">Password</string>
+    <string name="app_senhaconfirma">Conferma la password</string>
+    <string name="app_nome">Nome</string>
+    <string name="app_placeholdernome">Scrivi il tuo nome</string>
+    <string name="app_nascimento">Data di nascita</string>
+    <string name="app_termos">APPLICAZIONE TERMINI D USO</string>
+    <string name="app_termosconcordo">Ho letto i termini e sono d accordo</string>
+    <string name="app_cadastrar">Registrati</string>
+    <string name="app_esqueciSenha">Ho dimenticato la mia password</string>
+    <string name="app_entrar">Accesso</string>
+    <string name="app_novaconta">CREA UN NUOVO ACCOUNT</string>
+
+    <!-- CHAT -->
+    <string name="app_conversas">Conversazioni</string>
+    <string name="app_mensagem">Digita il tuo messaggio</string>
+    <string name="app_enviar">SOTTOSCRIVI</string>
+
+    <!-- Config -->
+    <string name="app_idioma">Lingua</string>
+    <string name="app_sairApp">ESCI</string>
+    <string name="app_salvar">Salvare</string>
+
+
+    <!-- Eventos -->
+    <string name="app_eventos">Registrazione dell evento</string>
+    <string name="app_descEvento">Descrizione dell evento</string>
+    <string name="app_dataEvento">Data dell evento</string>
+    <string name="app_local">luogo dell evento</string>
+    <string name="app_bora">ANDIAMO!?</string>
+</resources>
