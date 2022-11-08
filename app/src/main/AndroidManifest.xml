@@ -13,6 +13,13 @@
         android:theme="@style/Theme.BORA"
         tools:targetApi="31">
         <activity
+            android:name=".Termos"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Configuracoes"
             android:exported="false">
             <meta-data
