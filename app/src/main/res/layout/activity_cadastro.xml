@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:backgroundTint="@color/background"
-    tools:context=".Cadastro">
+    tools:context=".Activity.Cadastro">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tb_principal"

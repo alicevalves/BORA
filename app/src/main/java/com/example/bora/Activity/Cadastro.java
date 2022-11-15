@@ -1,4 +1,4 @@
-package com.example.bora;
+package com.example.bora.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,10 +13,17 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.bora.Classes.Usuario;
+import com.example.bora.DAO.ConfiguraçãoFirebase;
+import com.example.bora.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.database.DatabaseReference;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -27,9 +34,8 @@ public class Cadastro extends AppCompatActivity {
     private CheckBox chk_termos;
     private Button btn_cadastrar;
     private FirebaseAuth mAuth;
-
-    public Cadastro() {
-    }
+    private DatabaseReference reference;
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +44,6 @@ public class Cadastro extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         getSupportActionBar().setTitle("Cadastre sua conta");     //Titulo para ser exibido
         setContentView(R.layout.activity_cadastro);
-
-        mAuth = FirebaseAuth.getInstance();
 
         ed_Nome = findViewById(R.id.ed_Nome);
         ed_EmailCad = findViewById(R.id.ed_EmailCad);
@@ -57,7 +61,12 @@ public class Cadastro extends AppCompatActivity {
                 String registerNascimento = ed_DataNascimento.getText().toString();
                 String registerSenha = ed_SenhaCad.getText().toString();
                 String registerSenhaConf = ed_ConfirmSenha.getText().toString();
+                usuario = new Usuario();
+                usuario.setEmail(registerEmail);
+                usuario.setNascimento(registerNascimento);
+                usuario.setNome(registerNome);
 
+                mAuth = ConfiguraçãoFirebase.getFirebaseAuth();
                 if (!chk_termos.isChecked()){
                     Toast.makeText(Cadastro.this, "É necessário aceitar os termos :|", Toast.LENGTH_SHORT).show();
                 }else {
@@ -65,15 +74,31 @@ public class Cadastro extends AppCompatActivity {
                             || !TextUtils.isEmpty(registerNascimento) || !TextUtils.isEmpty(registerSenhaConf)
                             || !TextUtils.isEmpty(registerNome)){
                         if(registerSenha.equals(registerSenhaConf)){
-                            String senhahash = md5(registerSenha);
-                            mAuth.createUserWithEmailAndPassword(registerEmail, senhahash).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+                            mAuth.createUserWithEmailAndPassword(registerEmail, registerSenha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()){
-                                        abrirTelaPrincipal();
+
+                                        boolean retorno = insereUsuario(usuario);
+                                        if(retorno){
+                                            abrirTelaPrincipal();
+                                        }
                                     }else{
-                                        String error = task.getException().getMessage();
-                                        Toast.makeText(Cadastro.this, "Erro:" + error, Toast.LENGTH_SHORT).show();
+                                        String erro = "";
+
+                                        try {
+                                            throw task.getException();
+                                        }catch (FirebaseAuthWeakPasswordException e) {
+                                            erro = "Que tal uma senha mais forte?";
+                                        } catch (FirebaseAuthInvalidCredentialsException e){
+                                            erro = "Tem certeza que o e-mail está correto?";
+                                        } catch (FirebaseAuthUserCollisionException e){
+                                            erro = "Parece que esse e-mail já está cadastrado!";
+                                        } catch (Exception e){
+                                            e.printStackTrace();
+                                            Toast.makeText(Cadastro.this, "Erro:" + e, Toast.LENGTH_SHORT).show();
+                                        }
                                     }
                                 }
                             });
@@ -85,7 +110,19 @@ public class Cadastro extends AppCompatActivity {
             }
         });
     }
+    private boolean insereUsuario(Usuario usuario){
+        try{
+            reference = ConfiguraçãoFirebase.getFirebase().child("usuarios");
+            reference.push().setValue(usuario);
 
+            Toast.makeText(Cadastro.this, "Cadastrado", Toast.LENGTH_SHORT).show();
+            return true;
+        } catch (Exception ex){
+            Toast.makeText(Cadastro.this, "Erro ao gravar :(", Toast.LENGTH_SHORT).show();
+            ex.printStackTrace();
+            return false;
+        }
+    }
     private void abrirTelaPrincipal() {
         Intent in = new Intent(this, MainActivity.class);
         startActivity(in);

@@ -1,4 +1,4 @@
-package com.example.bora;
+package com.example.bora.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,16 +7,23 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-public class CadastroEventos extends AppCompatActivity {
+import com.example.bora.R;
+
+public class Conversas extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
-        setContentView(R.layout.activity_cadastro_eventos);
+        getSupportActionBar().setTitle("Conversas");     //Titulo para ser exibido
+        setContentView(R.layout.activity_conversas);
     }
 
+    public void novaMensagem(View v){
+        Intent in = new Intent(this, Chat.class);
+        startActivity(in);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { //Botão adicional na ToolBar
         switch (item.getItemId()) {
@@ -27,9 +34,5 @@ public class CadastroEventos extends AppCompatActivity {
             default:break;
         }
         return true;
-    }
-    public void voltar(View v){
-        Intent in = new Intent(this, TelaPrincipal.class);
-        startActivity(in);
     }
 }

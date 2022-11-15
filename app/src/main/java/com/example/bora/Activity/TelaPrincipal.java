@@ -1,4 +1,4 @@
-package com.example.bora;
+package com.example.bora.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.bora.Activity.CadastroEventos;
+import com.example.bora.Activity.Configuracoes;
+import com.example.bora.Activity.Conversas;
+import com.example.bora.R;
 
 public class TelaPrincipal extends AppCompatActivity {
 
