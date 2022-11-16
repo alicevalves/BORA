@@ -5,6 +5,9 @@ public class Eventos {
     private String data;
     private String local;
     private String idUsu;
+    private String dataCadastro;
+    private String email;
+
 
     public String getDescricao() {
         return descricao;
@@ -29,4 +32,11 @@ public class Eventos {
     public String getIdUsu() { return idUsu; }
 
     public void setIdUsu(String idUsu) { this.idUsu = idUsu; }
+
+    public String getDataCadastro() { return dataCadastro; }
+
+    public void setDataCadastro(String dataCadastro) { this.dataCadastro = dataCadastro; }
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
 }

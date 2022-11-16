@@ -11,11 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.bora.Adapter.ChatAdapter;
 import com.example.bora.Classes.ChatPessoal;
 import com.example.bora.DAO.ConfiguraçãoFirebase;
 import com.example.bora.R;
-import com.example.bora.RecyclerViewAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,24 +24,26 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class Chat extends AppCompatActivity {
     private EditText ed_Mensagem;
-    private RecyclerView rc_chat;
+    private RecyclerView mRecyclerView;
     private Button btn_Enviar;
     private FirebaseAuth mAuth;
     private DatabaseReference reference;
     private ChatPessoal chat;
+    private LinearLayoutManager mLayoutManagerTodos;
     private ArrayList <ChatPessoal> list;
     private FirebaseUser user;
-    private RecyclerViewAdapter adapter;
-
-
+    private List<ChatPessoal> chatlist;
+    private ChatAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +54,7 @@ public class Chat extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
 
         ed_Mensagem = findViewById(R.id.ed_Mensagem);
-        rc_chat = findViewById(R.id.rc_chat);
+        mRecyclerView = findViewById(R.id.rc_chat);
         btn_Enviar = findViewById(R.id.btn_Enviar);
         list = new ArrayList<>();
 
@@ -59,7 +62,7 @@ public class Chat extends AppCompatActivity {
         user = mAuth.getCurrentUser();
         // Pega o valor de Origem (Usuário Conectado)
         String Uid = user.getUid();
-        String timeStamp = new SimpleDateFormat("dd-MM-yy HH:mm a").format(Calendar.getInstance().getTime());
+        String timeStamp = new SimpleDateFormat("dd/MM/yy HH:mm a").format(Calendar.getInstance().getTime());
 
         btn_Enviar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,10 +84,10 @@ public class Chat extends AppCompatActivity {
             }
         });
 
-        adapter = new RecyclerViewAdapter(this,list);
+        adapter = new ChatAdapter(list, this);
         LinearLayoutManager llm = new LinearLayoutManager(this,RecyclerView.VERTICAL,true);
-        rc_chat.setLayoutManager(llm);
-        rc_chat.setAdapter(adapter);
+        mRecyclerView.setLayoutManager(llm);
+        mRecyclerView.setAdapter(adapter);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { //Botão adicional na ToolBar
@@ -105,16 +108,20 @@ public class Chat extends AppCompatActivity {
     }
 
     private void receiveMessages(){
-        adapter = new RecyclerViewAdapter(this,list);
-        reference = ConfiguraçãoFirebase.getFirebase();
-        reference.child("chat").addValueEventListener(new ValueEventListener() {
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManagerTodos = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(mLayoutManagerTodos);
+        chatlist = new ArrayList<>();
+
+        reference = FirebaseDatabase.getInstance().getReference();
+        reference.child("chat").orderByChild("dataTime").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                list.clear();
-                for (DataSnapshot snap:snapshot.getChildren()){
-                    ChatPessoal mensagem = snap.getValue(ChatPessoal.class);
-                    adapter.addMessage(mensagem);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot postSnapshot: dataSnapshot.getChildren()){
+                    chat = postSnapshot.getValue(ChatPessoal.class);
+                    chatlist.add(chat);
                 }
+                adapter.notifyDataSetChanged(); //Notifica quando o dado é notificado
             }
 
             @Override
@@ -122,6 +129,7 @@ public class Chat extends AppCompatActivity {
 
             }
         });
-
+        adapter = new ChatAdapter(chatlist, this);
+        mRecyclerView.setAdapter(adapter); // Preenche os itens
     }
 }

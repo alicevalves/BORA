@@ -15,12 +15,13 @@ import android.widget.Toast;
 import com.example.bora.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     private Button btn_Login, btn_EsqueciSenha;
-    private EditText ed_Email, ed_Senha;
+    private EditText ed_Senha, ed_Email;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

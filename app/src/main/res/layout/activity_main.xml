@@ -8,60 +8,55 @@
     android:backgroundTint="@color/fundo"
     tools:context=".Activity.MainActivity">
 
-    <EditText
-        android:id="@+id/ed_Email"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/iput_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:ems="10"
-        android:hint="@string/app_placeholderusu"
-        android:inputType="textEmailAddress"
+        android:backgroundTint="@color/background"
+        android:ems="1"
+        android:hint="E-mail"
+        app:boxBackgroundColor="@color/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_Email" />
+        app:layout_constraintTop_toBottomOf="@+id/IMV_Logo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_Email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ed_Senha"
+        android:id="@+id/txtip_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="20dp"
-        android:ems="10"
-        android:hint="@string/app_placeholdersenha"
-        android:inputType="textPassword"
-        android:textColorHighlight="@color/pink"
-        android:textColorLink="@color/pink"
+        android:backgroundTint="@color/background"
+        android:ems="1"
+        app:boxBackgroundColor="@color/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_Senha"
-        android:gravity="center"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/pink"/>
+        app:layout_constraintTop_toBottomOf="@+id/iput_email"
+        android:hint="@string/app_senha"
+        app:passwordToggleEnabled="true">
 
-    <TextView
-        android:id="@+id/txt_Email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="E-mail"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IMV_Logo" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_Senha"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:inputType="textPassword" />
 
-    <TextView
-        android:id="@+id/txt_Senha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="35dp"
-        android:text="@string/app_senha"
-        android:textColor="@color/black"
-        android:textColorHighlight="@color/pink"
-        android:textColorLink="@color/pink"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_Email" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_Login"
@@ -73,7 +68,7 @@
         android:text="@string/app_entrar"
         android:textColor="@color/design_default_color_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_Senha" />
+        app:layout_constraintTop_toBottomOf="@+id/txtip_layout" />
 
     <Button
         android:id="@+id/btn_EsqueciSenha"
@@ -86,7 +81,7 @@
         android:text="@string/app_esqueciSenha"
         android:textColor="@color/pink"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_Senha" />
+        app:layout_constraintTop_toBottomOf="@+id/txtip_layout" />
 
     <Button
         android:id="@+id/btn_criarConta"

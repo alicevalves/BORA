@@ -18,6 +18,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class CadastroEventos extends AppCompatActivity {
     private EditText ed_descricao, ed_dataEvento, ed_local;
     private Button btn_NovoEvento;
@@ -43,6 +46,7 @@ public class CadastroEventos extends AppCompatActivity {
         db = FirebaseDatabase.getInstance().getReference();
         user = mAuth.getCurrentUser();
         String idUsu = user.getUid();
+        String email = user.getEmail();
 
         btn_NovoEvento.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +60,9 @@ public class CadastroEventos extends AppCompatActivity {
                 eventos.setData(data);
                 eventos.setLocal(local);
                 eventos.setIdUsu(idUsu);
+                eventos.setEmail(email);
+                String timeStamp = new SimpleDateFormat("dd/MM/yy HH:mm a").format(Calendar.getInstance().getTime());
+                eventos.setDataCadastro(timeStamp);
                 try{
                     reference = ConfiguraçãoFirebase.getFirebase().child("eventos");
                     reference.push().setValue(eventos);
