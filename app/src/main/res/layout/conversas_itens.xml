@@ -39,6 +39,12 @@
         android:text="Olá, tudo bemmm???"
         />
 
+    <TextView
+        android:id="@+id/txt_codigo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible" />
+
     <View
         android:id="@+id/divider"
         android:layout_width="409dp"

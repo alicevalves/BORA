@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(new Intent(MainActivity.this, TelaPrincipal.class));
                             finish();
                         }else{
-                            Toast.makeText(MainActivity.this, "Falha no Login!", Toast.LENGTH_SHORT).show();}
+                            Toast.makeText(MainActivity.this, "Falha no Login!", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
             }

@@ -1,6 +1,7 @@
 package com.example.bora.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +46,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder>  {
     private List<ChatPessoal> mChat;
     private DatabaseReference reference;
     private String nomeUsu;
+    private FirebaseUser user;
+    private FirebaseAuth mAuth;
 
     public ChatAdapter(List<ChatPessoal> l, Context c){
         context = c;
@@ -69,13 +72,21 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder>  {
 
         reference = ConfiguraçãoFirebase.getFirebase();
         Usuario usuario = new Usuario();
-        reference.child("usuarios").orderByChild("email").equalTo(item.getEmailDestino()).addValueEventListener(new ValueEventListener() {
+        reference.child("usuarios").orderByKey().equalTo(item.getIdUsu()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot postSnapshot: snapshot.getChildren()){
                     Usuario usuario = postSnapshot.getValue(Usuario.class);
                     nomeUsu = usuario.getNome();
 
+                    mAuth = ConfiguraçãoFirebase.getFirebaseAuth();
+                    user = mAuth.getCurrentUser();
+
+                    if(item.getIdUsu().equals(user.getUid())){
+                        holder.username.setTextColor(Color.parseColor("#ff006e"));
+                    }else{
+                        holder.username.setTextColor(Color.parseColor("#ffbe0b"));
+                    }
                     holder.username.setText(nomeUsu);
                 }
             }
@@ -102,19 +113,6 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder>  {
         holder.message.setText(item.getMensagem());
         holder.dateTime.setText(item.getDataTime());
 
-       /* String dayAtual = new SimpleDateFormat("dd/MM/yy").format(Calendar.getInstance().getTime());
-        DateTimeFormatter dayFormatter = DateTimeFormatter.ofPattern("dd/MM/yy");
-        OffsetDateTime dateTime = OffsetDateTime.parse(data);
-        String dayBanco = dateTime.format(dayFormatter);
-
-        DateTimeFormatter horaFormatter = DateTimeFormatter.ofPattern("HH:mm a");
-        OffsetDateTime hora = OffsetDateTime.parse(data);
-        String horaBanco = hora.format(horaFormatter);*/
-       /* if(dayAtual.equals(dayBanco)){
-            holder.dateTime.setText(horaBanco);
-        }else {
-            holder.dateTime.setText(dayBanco);
-        }*/
     }
 
     @Override

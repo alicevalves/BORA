@@ -2,11 +2,14 @@ package com.example.bora.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -18,10 +21,14 @@ import com.example.bora.Classes.ConversasClasse;
 import com.example.bora.Classes.Usuario;
 import com.example.bora.DAO.ConfiguraçãoFirebase;
 import com.example.bora.R;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +64,7 @@ public class ConversasAdapter extends RecyclerView.Adapter<ConversasAdapter.View
 
         reference = ConfiguraçãoFirebase.getFirebase();
         Usuario usuario = new Usuario();
-        reference.child("usuarios").orderByChild("email").equalTo(item.getOrigem()).addValueEventListener(new ValueEventListener() {
+        reference.child("usuarios").orderByKey().equalTo(item.getOrigem()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot postSnapshot: snapshot.getChildren()){
@@ -74,9 +81,9 @@ public class ConversasAdapter extends RecyclerView.Adapter<ConversasAdapter.View
             }
         });
 
-/*
+
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        final StorageReference storageReference = storage.getReferenceFromUrl("gs://bora-103cc.appspot.com/fotoPerfilUsuario/" + item.getIdUsu() + ".jpg");
+        final StorageReference storageReference = storage.getReferenceFromUrl("gs://bora-103cc.appspot.com/fotoPerfilUsuario/" + item.getDestino() + ".jpg");
 
         final int height = 250;
         final int width = 250;
@@ -87,12 +94,19 @@ public class ConversasAdapter extends RecyclerView.Adapter<ConversasAdapter.View
                 Picasso.with(context).load(uri.toString()).resize(width, height).centerCrop().into(holder.img_user);
             }
         });
-  */
+
         holder.message.setText("Digite a primeira mensagem");
+        holder.codigo.setText(item.getKey());
         holder.cl_conversas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, Chat.class)); // Chama a tela do CHAT
+                TextView id = view.findViewById(R.id.txt_codigo);
+                Intent intent = new Intent(context, Chat.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("key", id.getText().toString());
+                intent.putExtras(bundle);
+
+                context.startActivity(intent);
             }
         });
     }
@@ -103,7 +117,7 @@ public class ConversasAdapter extends RecyclerView.Adapter<ConversasAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView username, message;
+        TextView username, message, codigo;
         ImageView img_user;
         ConstraintLayout cl_conversas;
 
@@ -112,6 +126,7 @@ public class ConversasAdapter extends RecyclerView.Adapter<ConversasAdapter.View
 
             message = itemView.findViewById(R.id.txt_mensagem);
             username = itemView.findViewById(R.id.txt_username);
+            codigo = itemView.findViewById(R.id.txt_codigo);
             img_user = itemView.findViewById(R.id.img_user);
             cl_conversas = itemView.findViewById(R.id.cl_conversas);
         }

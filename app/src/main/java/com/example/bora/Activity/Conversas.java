@@ -71,7 +71,7 @@ public class Conversas extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference();
         user = mAuth.getCurrentUser();
         // Pega o valor de Origem (Usuário Conectado)
-        String origem = user.getEmail();
+        String origem = user.getUid();
         reference.child("conversas").orderByChild("destino").equalTo(origem).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -88,6 +88,21 @@ public class Conversas extends AppCompatActivity {
             }
         });
 
+        reference.child("conversas").orderByChild("origem").equalTo(origem).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot postSnapshot: dataSnapshot.getChildren()){
+                    todasConversas = postSnapshot.getValue(ConversasClasse.class);
+                    conversas.add(todasConversas);
+                }
+                adapter.notifyDataSetChanged(); //Notifica quando o dado é notificado
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         adapter = new ConversasAdapter(conversas, this);
         mRecyclerView.setAdapter(adapter); // Preenche os itens
     }

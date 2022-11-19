@@ -34,6 +34,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -108,11 +110,12 @@ public class EventosAdapter extends RecyclerView.Adapter<EventosAdapter.ViewHold
 
                 mAuth = FirebaseAuth.getInstance();
                 user = mAuth.getCurrentUser();
-                String origem = user.getEmail();
-                String destino = item.getEmail();
+                String origem = user.getUid();
+                String destino = item.getIdUsu();
                 ConversasClasse conversas = new ConversasClasse();
                 conversas.setOrigem(origem);
                 conversas.setDestino(destino);
+                conversas.setKey(md5(origem + destino));
                 holder.btn_convida.setEnabled(false);
                 reference = ConfiguraçãoFirebase.getFirebase().child("conversas");
                 reference.push().setValue(conversas).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -124,7 +127,24 @@ public class EventosAdapter extends RecyclerView.Adapter<EventosAdapter.ViewHold
             }
         });
     }
+    public String md5(String s) {
+        try {
+            // Create MD5 Hash
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+            digest.update(s.getBytes());
+            byte messageDigest[] = digest.digest();
 
+            // Create Hex String
+            StringBuffer hexString = new StringBuffer();
+            for (int i=0; i<messageDigest.length; i++)
+                hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
+
+            return hexString.toString();
+        }catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
     @Override
     public int getItemCount() {
         return mEventList.size(); // Retorna o tamanho da lista de Eventos
@@ -152,7 +172,6 @@ public class EventosAdapter extends RecyclerView.Adapter<EventosAdapter.ViewHold
         List<Eventos> listaTemp = new ArrayList<>();
         alterado = false;
         if(descricao.length() == 0){
-            Toast.makeText(context, "ENTROU VAZIO", Toast.LENGTH_SHORT).show();
             mEventList.addAll(eventosArray);
         }else{
             //mEventList.clear();

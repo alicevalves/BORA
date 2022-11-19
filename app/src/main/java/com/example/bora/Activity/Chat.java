@@ -44,6 +44,7 @@ public class Chat extends AppCompatActivity {
     private FirebaseUser user;
     private List<ChatPessoal> chatlist;
     private ChatAdapter adapter;
+    private String chave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,10 @@ public class Chat extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         getSupportActionBar().setTitle("Chat");     //Titulo para ser exibido
         setContentView(R.layout.activity_chat);
+        //Pega a intent de outra activity
+        Bundle bundle = new Bundle();
+        bundle = getIntent().getExtras();
+        chave = bundle.getString("key");
 
         ed_Mensagem = findViewById(R.id.ed_Mensagem);
         mRecyclerView = findViewById(R.id.rc_chat);
@@ -67,13 +72,13 @@ public class Chat extends AppCompatActivity {
         btn_Enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                chatlist.clear();
                 String msg = ed_Mensagem.getText().toString();
                 chat = new ChatPessoal();
                 chat.setIdUsu(Uid);
                 chat.setMensagem(msg);
                 chat.setDataTime(timeStamp);
-                chat.setEmailDestino("allytori01@gmail.com");
-
+                chat.setChave(chave);
                 reference = ConfiguraçãoFirebase.getFirebase().child("chat");
                 reference.push().setValue(chat).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -113,8 +118,8 @@ public class Chat extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManagerTodos);
         chatlist = new ArrayList<>();
 
-        reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("chat").orderByChild("dataTime").addValueEventListener(new ValueEventListener() {
+        reference = ConfiguraçãoFirebase.getFirebase();
+        reference.child("chat").orderByChild("chave").equalTo(chave).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot postSnapshot: dataSnapshot.getChildren()){

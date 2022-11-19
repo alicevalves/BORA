@@ -4,7 +4,7 @@ public class ChatPessoal {
     private String idUsu;
     private String mensagem;
     private String dataTime;
-    private String emailDestino;
+    private String chave;
 
     public String getIdUsu() { return idUsu; }
 
@@ -26,8 +26,13 @@ public class ChatPessoal {
         this.dataTime = dataTime;
     }
 
-    public String getEmailDestino() { return emailDestino; }
+    public String getChave() {
+        return chave;
+    }
 
-    public void setEmailDestino(String emailDestino) { this.emailDestino = emailDestino; }
+    public void setChave(String chave) {
+        this.chave = chave;
+    }
+
 
 }
